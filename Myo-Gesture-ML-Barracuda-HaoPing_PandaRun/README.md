@@ -1,4 +1,4 @@
 # Myo-Gesture-ML-Barracuda-PandaRun
 
-# Working on data saving, logging, and call post/get request to python flask.
+## Still working on data saving, logging, and call post/get request to python flask.
  
