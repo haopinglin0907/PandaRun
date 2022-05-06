@@ -25,7 +25,7 @@ public class NewUserButton : MonoBehaviour
 
     private void Start()
     {
-        SetLabelText();
+        //SetLabelText();
         newUserButton.onClick.AddListener(TaskOnClick);
     }
 
@@ -35,11 +35,11 @@ public class NewUserButton : MonoBehaviour
         SceneManager.LoadScene("CreateUser");
     }
 
-
+    /*
     private void SetLabelText()
     {
         buttonLabel.font = GlobalText.FontAssetMedium;
         buttonLabel.text = GlobalText.Dictionary["button_new"].ToUpper();
     }
-
+    */
 }

@@ -26,7 +26,7 @@ public class LoadUserButton : MonoBehaviour
 
     private void Start()
     {
-        SetLabelText();
+        //SetLabelText();
         loadUserButton.onClick.AddListener(TaskOnClick);
     }
 
@@ -47,11 +47,11 @@ public class LoadUserButton : MonoBehaviour
             yield return null;
         }
     }
-
+    /*
     private void SetLabelText()
     {
         buttonLabel.font = GlobalText.FontAssetMedium;
         buttonLabel.text = GlobalText.Dictionary["button_load"].ToUpper();
     }
-
+    */
 }
