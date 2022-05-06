@@ -43,7 +43,7 @@ public class GestureML : MonoBehaviour
     private List<int> indexBuffer = new List<int>();
 
     // number of predictions to store
-    private int indexBufferSize = 15;
+    private int indexBufferSize = 5;
 
     private Dictionary<int, List<int>> emgDictionary = new Dictionary<int, List<int>>() {
         { 0, new List<int>() },
@@ -137,24 +137,27 @@ public class GestureML : MonoBehaviour
         Vector3 forwardMove = Player.transform.forward * speed * Time.deltaTime;
         Vector3 horizontalMove = Player.transform.right * 1 * speed * Time.deltaTime;
         // Control of the player
-        switch (modeIndex)
-        {
-            case 0:
-                horizontalMove *= 1;
-                rb.MovePosition(rb.position + forwardMove + horizontalMove);
-                break;
-            case 3:
-                horizontalMove *= -1;
-                rb.MovePosition(rb.position + forwardMove + horizontalMove);
-                break;
-            case 4:
-                horizontalMove *= 1;
-                rb.MovePosition(rb.position + forwardMove + horizontalMove);
-                break;
-            default:
-                horizontalMove *= -1;
-                rb.MovePosition(rb.position + forwardMove + horizontalMove);
-                break;
+        if (Player.GetComponent<PlayerMovement>().canMove)
+        { 
+            switch (modeIndex)
+            {
+                case 0:
+                    horizontalMove *= 1;
+                    rb.MovePosition(rb.position + forwardMove + horizontalMove);
+                    break;
+                case 3:
+                    horizontalMove *= -1;
+                    rb.MovePosition(rb.position + forwardMove + horizontalMove);
+                    break;
+                case 4:
+                    horizontalMove *= 1;
+                    rb.MovePosition(rb.position + forwardMove + horizontalMove);
+                    break;
+                default:
+                    horizontalMove *= -1;
+                    rb.MovePosition(rb.position + forwardMove + horizontalMove);
+                    break;
+            }
         }
 
         //dispose tensors

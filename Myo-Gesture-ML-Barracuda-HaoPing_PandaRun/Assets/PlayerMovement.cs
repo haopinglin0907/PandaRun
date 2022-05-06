@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float vel_x;
+    public bool canMove = false;
     public float speed;
     Rigidbody rb;
     Vector3 horizontalMove;
@@ -19,21 +19,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
+        if (canMove)
+        { 
+            horizontalInput = Input.GetAxis("Horizontal");
 
-        Vector3 forwardMove = transform.forward * speed * Time.deltaTime;
+            Vector3 forwardMove = transform.forward * speed * Time.deltaTime;
 
-        Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.deltaTime * horizontalMultiplier;
+            Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.deltaTime * horizontalMultiplier;
 
-        if (horizontalInput != 0)
-            rb.MovePosition(rb.position + forwardMove + horizontalMove);
-        else
-        {   
-            // MovePosition doesn't use rb.velocity 
-            rb.MovePosition(rb.position + forwardMove);
+            if (horizontalInput != 0)
+                rb.MovePosition(rb.position + forwardMove + horizontalMove);
+            else
+            {   
+                // MovePosition doesn't use rb.velocity 
+                rb.MovePosition(rb.position + forwardMove);
 
-            // prevents between bouncing from obstacles 
-            rb.velocity = new Vector3(0f, 0f, 0f);
+                // prevents between bouncing from obstacles 
+                rb.velocity = new Vector3(0f, 0f, 0f);
+            }
         }
     }
 }
