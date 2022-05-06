@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelFile: {fileID: 5022602860645237092, guid: b2ad2f412e00fae45a58304d9908fe42,
     type: 3}
-  Player: {fileID: 0}
+  Player: {fileID: 1950819620}
   speed: 5
   sprites:
   - {fileID: 21300000, guid: de0d188c97bc53141870a54efe1b680b, type: 3}
