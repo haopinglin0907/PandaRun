@@ -5,17 +5,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Barracuda;
+using Unity.Barracuda.ONNX;
+using UnityEngine.Networking;
 using TMPro;
+using System.IO;
 
 
 public class GestureML : MonoBehaviour
 {
-    public NNModel modelFile;
+    //public NNModel modelFile;
+    private ONNXModelConverter modelConverter = new ONNXModelConverter(true);
     public GameObject Player;
     Rigidbody rb;
     public float speed = 7.0f;
 
-    private Model model;
+    public Model model;
     private IWorker worker;
 
     private GameObject appManager;
@@ -71,11 +75,14 @@ public class GestureML : MonoBehaviour
 
     private void Start()
     {
+        model = modelConverter.Convert(File.ReadAllBytes(Application.persistentDataPath + "/test.onnx"));
+        Debug.LogError("Model Loaded!");
         
+        //model = ModelLoader.Load(modelFile); //original method
         // initialise 4d array
         emgArray[0,0,0,0] = 0f;
 
-        model = ModelLoader.Load(modelFile);
+        
         worker = WorkerFactory.CreateWorker(WorkerFactory.Type.CSharpBurst, model);
         rb = Player.transform.GetComponent<Rigidbody>();
     }

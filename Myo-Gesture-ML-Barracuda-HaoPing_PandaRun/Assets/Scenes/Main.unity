@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4487421, g: 0.49728578, b: 0.5681355, a: 1}
+  m_IndirectSpecularColor: {r: 0.42579585, g: 0.4591607, b: 0.48927337, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1843,8 +1843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a270922b4d38b444187bd0e5b3604449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelFile: {fileID: 5022602860645237092, guid: b2ad2f412e00fae45a58304d9908fe42,
-    type: 3}
   Player: {fileID: 1950819620}
   speed: 5
   sprites:
@@ -1865,7 +1863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd5ffed73cde774e8f6521432c88a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeBarContainer: {fileID: 0}
   activeBar: {fileID: 1717788200956522, guid: 0e567bf34b215fb42ab133831512bab5, type: 3}
 --- !u!114 &1631192834
 MonoBehaviour:

@@ -17,8 +17,8 @@ public class EMG : MonoBehaviour
     private float emgScale = 128f;
 
     // reference to active bar container
-    public GameObject activeBarContainer;
-    RectTransform activeBarContainerRT;
+    //public GameObject activeBarContainer;
+    //RectTransform activeBarContainerRT;
 
     // active bar container and bar objects
     public GameObject activeBar;
@@ -39,15 +39,15 @@ public class EMG : MonoBehaviour
     private void Start()
     {
         // reflects layout size - used for updating scaling factor 
-        activeBarContainerRT = activeBarContainer.GetComponent<RectTransform>();
+        //activeBarContainerRT = activeBarContainer.GetComponent<RectTransform>();
 
-        for (int i = 0; i < GlobalData.Channels; i++)
-        {
+        //for (int i = 0; i < GlobalData.Channels; i++)
+        //{
             // instantiate active bar, get rt and add to list, add bar to image list, add bar to bar list
-            GameObject activeBarClone = Instantiate(activeBar, activeBarContainer.transform);
-            activeBarRTs.Add(activeBarClone.GetComponent<RectTransform>());
-            activeBarImages.Add(activeBarClone.GetComponent<Image>());
-        }
+        //    GameObject activeBarClone = Instantiate(activeBar, activeBarContainer.transform);
+        //    activeBarRTs.Add(activeBarClone.GetComponent<RectTransform>());
+        //    activeBarImages.Add(activeBarClone.GetComponent<Image>());
+        //}
     }
 
 
@@ -58,13 +58,13 @@ public class EMG : MonoBehaviour
             for (int i = 0; i < GlobalData.Channels; i++)
             {
                 // calculate scaling factor based on bar container height - max emg value = 128
-                float scalingFactor = activeBarContainerRT.rect.height / emgScale;
+                //float scalingFactor = activeBarContainerRT.rect.height / emgScale;
 
                 // calculate active bar heights
-                float activeBarHeight = (float)dataHandling.kalmanFilterEMG[i] * scalingFactor;
+                //float activeBarHeight = (float)dataHandling.kalmanFilterEMG[i] * scalingFactor;
 
                 // set active bar heights
-                activeBarImages[i].rectTransform.sizeDelta = new Vector2(activeBarRTs[i].rect.width, activeBarHeight);
+                //activeBarImages[i].rectTransform.sizeDelta = new Vector2(activeBarRTs[i].rect.width, activeBarHeight);
             }
         }
     }
